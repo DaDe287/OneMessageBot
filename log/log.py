@@ -9,7 +9,6 @@ PATCH = "a"
 
 import logging, os
 from datetime import datetime
-from utils._types import *
 
 class Log:
     def __init__(self, filename):
