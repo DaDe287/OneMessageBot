@@ -13,6 +13,8 @@ bash <(curl -Ls https://raw.githubusercontent.com/DaDe287/AutoDocker/main/instal
 
 nano message.txt # Input your auto-message
 
+cp .env.example .env # Edit .env (required)
+ 
 docker compose up -d --build
 
 ```
