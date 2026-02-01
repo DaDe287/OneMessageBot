@@ -1,0 +1,16 @@
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: DockerFile
+    container_name: OneMessageBot
+
+    env_file:
+      - .env
+
+    volumes:
+      - .:/bot
+
+    command: python3.13 main.py
+
+    restart: unless-stopped
