@@ -18,7 +18,7 @@ log = Log("Bot")
 
 bot = AsyncTeleBot(BOT_TOKEN)
 
-@bot.handler_messages(func=lambda m: True)
+@bot.message_handler(func=lambda m: True)
 async def message(message: Message):
     try:
         
