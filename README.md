@@ -15,7 +15,7 @@ nano message.txt # Input your auto-message
 
 cp .env.example .env # Edit .env (required)
  
-docker compose up -d --build
+docker compose up -d --build && docker compose logs -t -f
 
 ```
 
