@@ -27,7 +27,7 @@ async def message(message: Message):
         
         markup = None
 
-        if LINK:
+        if LINK and BUT_TEXT:
             markup = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(BUT_TEXT, url=LINK))
 
         await bot.send_message(message.chat.id, f"<b>{_message}</b>", parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
