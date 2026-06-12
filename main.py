@@ -22,6 +22,11 @@ bot = AsyncTeleBot(BOT_TOKEN)
 async def message(message: Message):
     try:
         
+        print(
+            f"RECEIVED: {message.chat.id} {message.text}",
+            flush=True
+        )
+
         with open("message.txt", "r") as f:
             _message = f.read()
         
@@ -50,8 +55,8 @@ if __name__ == "__main__":
         print(colorama.Fore.LIGHTGREEN_EX+"============Bot started===========================")
         print(colorama.Fore.RESET)
 
-        asyncio.run(bot.polling(non_stop=True, request_timeout=100, skip_pending=True))
-        
+        asyncio.run(bot.polling(non_stop=True, skip_pending=True))
+
     except (KeyboardInterrupt, SystemExit):
         log.warning("Bot was stopped")
     finally:
