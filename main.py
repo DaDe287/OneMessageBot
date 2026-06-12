@@ -32,7 +32,8 @@ async def message(message: Message):
             for text, url in zip(BUT_TEXT.split(","), LINK.split(",")):
                 markup.add(InlineKeyboardButton(text, url=url))
 
-        await bot.send_message(message.chat.id, f"<b>{_message}</b>", parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
+        with open("video.mov", "rb") as video_file:
+            await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
 
     except Exception as e:
         log.exception(f"Failed to send message to user: {message.chat.id}")
