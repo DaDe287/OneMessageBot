@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from telebot.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from telebot.async_telebot import AsyncTeleBot
 from log.log import Log
-from config import BOT_TOKEN, BOT_USERNAME, LINK, BUT_TEXT, ADMINS
+from config import BOT_TOKEN, BOT_USERNAME, LINK, BUT_TEXT
 
 log = Log("Bot")
 
@@ -31,7 +31,11 @@ async def message(message: Message):
             _message = f.read()
         
         with open("video.mov", "rb") as video_file:
-            await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html')
+            await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html',
+                width=720,
+                height=1280,
+                supports_streaming=True
+            )
 
     except Exception as e:
         print(e)
