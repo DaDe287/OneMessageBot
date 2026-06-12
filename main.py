@@ -30,13 +30,6 @@ async def message(message: Message):
         with open("message.txt", "r") as f:
             _message = f.read()
         
-        markup = None
-
-        if BUT_TEXT and LINK:
-            markup = InlineKeyboardMarkup(row_width=1)
-            for text, url in zip(BUT_TEXT.split(","), LINK.split(",")):
-                markup.add(InlineKeyboardButton(text, url=url))
-
         with open("video.mov", "rb") as video_file:
             await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
 
