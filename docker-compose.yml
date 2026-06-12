@@ -13,6 +13,6 @@ services:
       - ./video.mov:/bot/video.mov
       - .:/bot
 
-    command: python3.13 main.py
+    command: python3.13 -u main.py
 
     restart: unless-stopped
