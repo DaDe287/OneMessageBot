@@ -41,6 +41,7 @@ async def message(message: Message):
             await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
 
     except Exception as e:
+        print(e)
         log.exception(f"Failed to send message to user: {message.chat.id}")
 
 
