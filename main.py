@@ -42,7 +42,7 @@ async def message(message: Message):
 if __name__ == "__main__":
     try:
         _log_session = log.log_session
-        log.warning("Distribution was started")
+        log.warning("Bot was started")
         
         print(colorama.Fore.LIGHTBLUE_EX+"============"+(datetime.now() + timedelta(hours=1)).strftime("%Y-%m-%d %H:%M:%S")+"====================")
         print(colorama.Fore.LIGHTMAGENTA_EX+"============Bot version: " + str(VERSION)+PATCH + "===================")
@@ -51,6 +51,7 @@ if __name__ == "__main__":
         print(colorama.Fore.RESET)
 
         asyncio.run(bot.polling(non_stop=True, request_timeout=100, skip_pending=True))
+        
     except (KeyboardInterrupt, SystemExit):
         log.warning("Bot was stopped")
     finally:
