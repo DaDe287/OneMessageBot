@@ -35,18 +35,19 @@ async def message(message: Message):
         await bot.send_message(message.chat.id, f"<b>{_message}</b>", parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
 
     except Exception as e:
+        print(e)
         log.exception(f"Failed to send message to user: {message.chat.id}")
 
 
 if __name__ == "__main__":
     try:
         _log_session = log.log_session
-        log.warning("Distribution was started")
+        log.warning("Bot was started")
         
         print(colorama.Fore.LIGHTBLUE_EX+"============"+(datetime.now() + timedelta(hours=1)).strftime("%Y-%m-%d %H:%M:%S")+"====================")
-        print(colorama.Fore.LIGHTMAGENTA_EX+"============Dist version: " + str(VERSION)+PATCH + "===================")
+        print(colorama.Fore.LIGHTMAGENTA_EX+"============Bot version: " + str(VERSION)+PATCH + "===================")
         print(colorama.Fore.LIGHTCYAN_EX+"============Log: "+_log_session + "====") 
-        print(colorama.Fore.LIGHTGREEN_EX+"============Dist started===========================")
+        print(colorama.Fore.LIGHTGREEN_EX+"============Bot started===========================")
         print(colorama.Fore.RESET)
 
         asyncio.run(bot.polling(non_stop=True, request_timeout=100, skip_pending=True))
