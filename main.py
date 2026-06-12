@@ -31,7 +31,7 @@ async def message(message: Message):
             _message = f.read()
         
         with open("video.mov", "rb") as video_file:
-            await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html', reply_markup=markup, disable_web_page_preview=True)
+            await bot.send_video(chat_id=message.chat.id, caption=_message, video=video_file, parse_mode='html', disable_web_page_preview=True)
 
     except Exception as e:
         print(e)

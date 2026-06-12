@@ -9,8 +9,6 @@ services:
       - .env
 
     volumes:
-      - ./.logs:/bot/.logs
-      - ./video.mov:/bot/video.mov
       - .:/bot
 
     command: python3.13 -u main.py
