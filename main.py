@@ -12,7 +12,7 @@ from datetime import datetime, timedelta
 from telebot.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from telebot.async_telebot import AsyncTeleBot
 from log.log import Log
-from config import BOT_TOKEN, BOT_USERNAME, LINK, BUT_TEXT
+from config import BOT_TOKEN, BOT_USERNAME, LINK, BUT_TEXT, ADMINS
 
 log = Log("Bot")
 
@@ -36,7 +36,6 @@ async def message(message: Message):
     except Exception as e:
         print(e)
         log.exception(f"Failed to send message to user: {message.chat.id}")
-
 
 if __name__ == "__main__":
     try:
